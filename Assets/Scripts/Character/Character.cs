@@ -6,16 +6,14 @@ using UnityEngine.Serialization;
 
 public abstract class Character : MonoBehaviour
 {
-  [Header("Character Stats")] [SerializeField]
+  [Header("Attribution")] [SerializeField]
   private float health;
-
-  public bool isHit;
-  public bool isDead;
 
   [SerializeField] private float maxHealth;
 
-  [Header("Invulnerable")] [SerializeField]
-  private float invulnerabilityTime;
+  [Header("Stats")] public bool isHit;
+  public bool isDead;
+  [SerializeField] private float invulnerabilityTime;
 
   private bool isInvulnerable;
   private float invulnerabilityTimer;
@@ -23,7 +21,7 @@ public abstract class Character : MonoBehaviour
   #region Components
 
   private HealthBar healthBar;
-  [HideInInspector]public Animator anim;
+  [HideInInspector] public Animator anim;
   protected Rigidbody2D _rb;
 
   #endregion

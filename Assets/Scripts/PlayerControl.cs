@@ -11,10 +11,14 @@ public class PlayerControl : MonoBehaviour
   private Rigidbody2D _rb;
   private Animator _anim;
   private Player _player;
+  private Weapon _weapon;
+  private Vector2 _inputDirection;
 
   [Header("Movement")] [SerializeField] private float speed;
 
-  private Vector2 _inputDirection;
+  [Header("Attack")] public bool canAttack;
+  public float attackTimer;
+
   public bool isPlayingAnimation;
 
   private void Awake()
@@ -22,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     _rb = GetComponent<Rigidbody2D>();
     _anim = GetComponent<Animator>();
     _player = GetComponent<Player>();
+    _weapon = GetComponentInChildren<Weapon>();
 
     _inputControl = new PlayerInputControl();
     _inputControl.Gameplay.Attack.started += Attack;
@@ -41,13 +46,26 @@ public class PlayerControl : MonoBehaviour
   private void Update()
   {
     _inputDirection = _inputControl.Gameplay.Move.ReadValue<Vector2>();
-    PlayRunAnimation();
     Flip();
+
+    TimeCount();
   }
 
   private void FixedUpdate()
   {
     Move();
+  }
+
+  private void TimeCount()
+  {
+    if (!canAttack)
+    {
+      attackTimer -= Time.deltaTime;
+      if (attackTimer < 0)
+      {
+        canAttack = true;
+      }
+    }
   }
 
   private void Move()
@@ -57,10 +75,6 @@ public class PlayerControl : MonoBehaviour
       _inputDirection.y * speed * Time.fixedDeltaTime);
 
     _anim.SetBool("isRun", _inputDirection.magnitude > 0);
-  }
-
-  private void PlayRunAnimation()
-  {
   }
 
   private void Flip()
@@ -79,6 +93,12 @@ public class PlayerControl : MonoBehaviour
 
   private void Attack(InputAction.CallbackContext obj)
   {
-    _anim.SetTrigger("attack");
+    if (canAttack)
+    {
+      _weapon.Attack();
+
+      canAttack = false;
+      attackTimer = _weapon.attackCooldown;
+    }
   }
 }
