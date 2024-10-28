@@ -795,7 +795,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_33
+      name: hit1
       rect:
         serializedVersion: 2
         x: 0
@@ -816,7 +816,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_34
+      name: hit2
       rect:
         serializedVersion: 2
         x: 32
@@ -837,7 +837,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_35
+      name: hit3
       rect:
         serializedVersion: 2
         x: 64
@@ -858,7 +858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_36
+      name: hit4
       rect:
         serializedVersion: 2
         x: 96
@@ -879,7 +879,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_37
+      name: dead1
       rect:
         serializedVersion: 2
         x: 0
@@ -900,7 +900,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_38
+      name: dead2
       rect:
         serializedVersion: 2
         x: 32
@@ -921,7 +921,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_39
+      name: dead3
       rect:
         serializedVersion: 2
         x: 64
@@ -942,7 +942,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_40
+      name: dead4
       rect:
         serializedVersion: 2
         x: 96
@@ -994,6 +994,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      dead1: 1221776419
+      dead2: 753206888
+      dead3: -1992623642
+      dead4: 1865852233
+      hit1: 456809427
+      hit2: 105028172
+      hit3: -1029340341
+      hit4: 2117165458
       idle1-1: 1740885411
       idle1-2: 536503524
       idle1-3: 1244158157
@@ -1015,14 +1023,6 @@ TextureImporter:
       mPlayer_ [human]_27: 462358595
       mPlayer_ [human]_28: 1119332076
       mPlayer_ [human]_3: 173820936
-      mPlayer_ [human]_33: 456809427
-      mPlayer_ [human]_34: 105028172
-      mPlayer_ [human]_35: -1029340341
-      mPlayer_ [human]_36: 2117165458
-      mPlayer_ [human]_37: 1221776419
-      mPlayer_ [human]_38: 753206888
-      mPlayer_ [human]_39: -1992623642
-      mPlayer_ [human]_40: 1865852233
       run1: -123614281
       run2: -267101074
       run3: -612650088

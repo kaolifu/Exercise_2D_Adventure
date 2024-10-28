@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
   [Header("Character Stats")] [SerializeField]
   private float health;
+
+  public bool isHit;
+  public bool isDead;
 
   [SerializeField] private float maxHealth;
 
@@ -16,11 +19,16 @@ public class Character : MonoBehaviour
   private bool isInvulnerable;
   private float invulnerabilityTimer;
 
-  [Header("Components")] private HealthBar healthBar;
-  private Animator _anim;
-  private Rigidbody2D _rb;
+  #region Components
 
-  private void Awake()
+  private HealthBar healthBar;
+  private Animator _anim;
+  protected Rigidbody2D _rb;
+
+  #endregion
+
+
+  protected virtual void Awake()
   {
     _anim = GetComponent<Animator>();
     _rb = GetComponent<Rigidbody2D>();
@@ -29,10 +37,12 @@ public class Character : MonoBehaviour
     InitHealth();
   }
 
-  private void Update()
+
+  protected virtual void Update()
   {
     TimeCount();
   }
+
 
   private void TimeCount()
   {
@@ -42,6 +52,7 @@ public class Character : MonoBehaviour
       if (invulnerabilityTimer <= 0)
       {
         isInvulnerable = false;
+        isHit = false;
         invulnerabilityTimer = invulnerabilityTime;
       }
     }
@@ -68,6 +79,9 @@ public class Character : MonoBehaviour
 
     // 播放hit动画
     _anim.SetTrigger("hit");
+    
+    // 设置isHit,以中断其他正在执行的一些动作
+    isHit = true;
 
     // 受到 direction 方向，impactForce 大小的冲击力
     _rb.AddForce(direction * impactForce, ForceMode2D.Impulse);
@@ -79,6 +93,8 @@ public class Character : MonoBehaviour
 
   protected virtual void Die()
   {
+    isDead = true;
+    
     _anim.SetBool("isDead", true);
   }
 }

@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
   private PlayerInputControl _inputControl;
   private Rigidbody2D _rb;
   private Animator _anim;
+  private Player _player;
 
   [Header("Movement")] [SerializeField] private float speed;
 
@@ -20,6 +21,7 @@ public class PlayerControl : MonoBehaviour
   {
     _rb = GetComponent<Rigidbody2D>();
     _anim = GetComponent<Animator>();
+    _player = GetComponent<Player>();
 
     _inputControl = new PlayerInputControl();
     _inputControl.Gameplay.Attack.started += Attack;
@@ -50,6 +52,7 @@ public class PlayerControl : MonoBehaviour
 
   private void Move()
   {
+    if (_player.isHit || _player.isDead) return;
     _rb.velocity = new Vector2(_inputDirection.x * speed * Time.fixedDeltaTime,
       _inputDirection.y * speed * Time.fixedDeltaTime);
 

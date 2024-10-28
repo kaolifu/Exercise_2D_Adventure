@@ -1,0 +1,94 @@
+using System;
+using Enum;
+using UnityEngine;
+
+public abstract class Enemy : Character
+{
+  [Header("Enemy Stats")] public float idleDuration;
+  public float patrolSpeed;
+  public float patrolDuration;
+  public float chaseSpeed;
+
+  #region Components
+
+  [HideInInspector] public Animator anim;
+
+  #endregion
+
+  #region StateMachine
+
+  protected BaseState currentState;
+  protected BaseState idleState;
+  protected BaseState patrolState;
+  protected BaseState chaseState;
+
+  #endregion
+
+  protected override void Awake()
+  {
+    base.Awake();
+    anim = GetComponent<Animator>();
+  }
+
+  protected virtual void OnEnable()
+  {
+    currentState.OnEnter(this);
+  }
+
+  protected override void Update()
+  {
+    base.Update();
+    currentState.OnLogicUpdate();
+  }
+
+  protected void FixedUpdate()
+  {
+    currentState.OnPhysicsUpdate();
+  }
+
+  protected void OnDisable()
+  {
+    currentState.OnExit();
+  }
+
+  public void ChangeState(StateType type)
+  {
+    var newState = type switch
+    {
+      StateType.Idle => idleState,
+      StateType.Patrol => patrolState,
+      StateType.Chase => chaseState,
+      _ => null
+    };
+
+    currentState.OnExit();
+    currentState = newState;
+    currentState?.OnEnter(this);
+  }
+
+  public void MoveTo(Vector2 destination, float speed)
+  {
+    if (isHit || isDead) return;
+
+    Vector2 currentPosition = _rb.position; // 获取当前 Rigidbody2D 的位置
+    Vector2 direction = (destination - currentPosition).normalized; // 计算方向并归一化
+
+    // 移动方向与人物朝向不一致的，执行转向
+    if (direction.x > 0 && transform.localScale.x < 0) Flip();
+    else if (direction.x < 0 && transform.localScale.x > 0) Flip();
+
+    // 通过速度向目标位置移动
+    _rb.velocity = direction * speed;
+
+    // 如果接近目标位置，则停止
+    if (Vector2.Distance(currentPosition, destination) < 0.1f)
+    {
+      _rb.velocity = Vector2.zero; // 停止移动
+    }
+  }
+
+  public void Flip()
+  {
+    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+  }
+}
