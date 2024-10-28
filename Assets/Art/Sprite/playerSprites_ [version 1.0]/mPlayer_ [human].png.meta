@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_5
+      name: idle1-2
       rect:
         serializedVersion: 2
         x: 32
@@ -228,7 +228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_6
+      name: idle1-3
       rect:
         serializedVersion: 2
         x: 64
@@ -249,7 +249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_7
+      name: idle1-4
       rect:
         serializedVersion: 2
         x: 96
@@ -270,7 +270,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_8
+      name: run1
       rect:
         serializedVersion: 2
         x: 0
@@ -291,7 +291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_9
+      name: run2
       rect:
         serializedVersion: 2
         x: 32
@@ -312,7 +312,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_10
+      name: run3
       rect:
         serializedVersion: 2
         x: 64
@@ -333,7 +333,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_11
+      name: run4
       rect:
         serializedVersion: 2
         x: 96
@@ -354,7 +354,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_12
+      name: run5
       rect:
         serializedVersion: 2
         x: 128
@@ -375,7 +375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_13
+      name: run6
       rect:
         serializedVersion: 2
         x: 160
@@ -396,7 +396,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_14
+      name: run7
       rect:
         serializedVersion: 2
         x: 192
@@ -417,7 +417,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_15
+      name: run8
       rect:
         serializedVersion: 2
         x: 224
@@ -711,7 +711,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_29
+      name: turn1
       rect:
         serializedVersion: 2
         x: 0
@@ -732,7 +732,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_30
+      name: turn2
       rect:
         serializedVersion: 2
         x: 32
@@ -753,7 +753,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_31
+      name: turn3
       rect:
         serializedVersion: 2
         x: 64
@@ -774,7 +774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_32
+      name: turn4
       rect:
         serializedVersion: 2
         x: 96
@@ -795,7 +795,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_33
+      name: hit1
       rect:
         serializedVersion: 2
         x: 0
@@ -816,7 +816,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_34
+      name: hit2
       rect:
         serializedVersion: 2
         x: 32
@@ -837,7 +837,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_35
+      name: hit3
       rect:
         serializedVersion: 2
         x: 64
@@ -858,7 +858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_36
+      name: hit4
       rect:
         serializedVersion: 2
         x: 96
@@ -879,7 +879,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_37
+      name: dead1
       rect:
         serializedVersion: 2
         x: 0
@@ -900,7 +900,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_38
+      name: dead2
       rect:
         serializedVersion: 2
         x: 32
@@ -921,7 +921,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_39
+      name: dead3
       rect:
         serializedVersion: 2
         x: 64
@@ -942,7 +942,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mPlayer_ [human]_40
+      name: dead4
       rect:
         serializedVersion: 2
         x: 96
@@ -994,15 +994,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      dead1: 1221776419
+      dead2: 753206888
+      dead3: -1992623642
+      dead4: 1865852233
+      hit1: 456809427
+      hit2: 105028172
+      hit3: -1029340341
+      hit4: 2117165458
       idle1-1: 1740885411
+      idle1-2: 536503524
+      idle1-3: 1244158157
+      idle1-4: 595357324
       mPlayer_ [human]_0: 152940586
       mPlayer_ [human]_1: 1818510827
-      mPlayer_ [human]_10: -612650088
-      mPlayer_ [human]_11: -1601777100
-      mPlayer_ [human]_12: -968327811
-      mPlayer_ [human]_13: -1927558715
-      mPlayer_ [human]_14: -1788621572
-      mPlayer_ [human]_15: -282734143
       mPlayer_ [human]_16: 209575309
       mPlayer_ [human]_17: -1407130573
       mPlayer_ [human]_18: 211350231
@@ -1017,24 +1022,19 @@ TextureImporter:
       mPlayer_ [human]_26: 1768534353
       mPlayer_ [human]_27: 462358595
       mPlayer_ [human]_28: 1119332076
-      mPlayer_ [human]_29: -553522490
       mPlayer_ [human]_3: 173820936
-      mPlayer_ [human]_30: 2111329681
-      mPlayer_ [human]_31: -1145832743
-      mPlayer_ [human]_32: -833745381
-      mPlayer_ [human]_33: 456809427
-      mPlayer_ [human]_34: 105028172
-      mPlayer_ [human]_35: -1029340341
-      mPlayer_ [human]_36: 2117165458
-      mPlayer_ [human]_37: 1221776419
-      mPlayer_ [human]_38: 753206888
-      mPlayer_ [human]_39: -1992623642
-      mPlayer_ [human]_40: 1865852233
-      mPlayer_ [human]_5: 536503524
-      mPlayer_ [human]_6: 1244158157
-      mPlayer_ [human]_7: 595357324
-      mPlayer_ [human]_8: -123614281
-      mPlayer_ [human]_9: -267101074
+      run1: -123614281
+      run2: -267101074
+      run3: -612650088
+      run4: -1601777100
+      run5: -968327811
+      run6: -1927558715
+      run7: -1788621572
+      run8: -282734143
+      turn1: -553522490
+      turn2: 2111329681
+      turn3: -1145832743
+      turn4: -833745381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
