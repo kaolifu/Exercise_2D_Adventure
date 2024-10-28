@@ -19,6 +19,7 @@ public abstract class Enemy : Character
   #region Components
 
   [HideInInspector] public ViewCheck viewCheck;
+  [Header("Components")]public RectTransform canvasRectTransform;
 
   #endregion
 
@@ -97,5 +98,7 @@ public abstract class Enemy : Character
   public void Flip()
   {
     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+    canvasRectTransform.localScale = new Vector3(-canvasRectTransform.localScale.x, canvasRectTransform.localScale.y,
+      transform.localScale.z);
   }
 }
