@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 public abstract class Character : MonoBehaviour
@@ -13,9 +14,8 @@ public abstract class Character : MonoBehaviour
 
   [Header("Stats")] public bool isHit;
   public bool isDead;
+  [SerializeField] private bool isInvulnerable;
   [SerializeField] private float invulnerabilityTime;
-
-  private bool isInvulnerable;
   private float invulnerabilityTimer;
 
   #region Components
@@ -25,6 +25,8 @@ public abstract class Character : MonoBehaviour
   protected Rigidbody2D _rb;
 
   #endregion
+
+  [Header("Events")] public UnityEvent onTakeDamage;
 
 
   protected virtual void Awake()
@@ -67,6 +69,8 @@ public abstract class Character : MonoBehaviour
   {
     // 设置无敌CD
     if (isInvulnerable) return;
+
+    onTakeDamage?.Invoke();
 
     isInvulnerable = true;
     invulnerabilityTimer = invulnerabilityTime;
