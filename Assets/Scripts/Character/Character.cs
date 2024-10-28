@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Character : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public abstract class Character : MonoBehaviour
   #region Components
 
   private HealthBar healthBar;
-  private Animator _anim;
+  [HideInInspector]public Animator anim;
   protected Rigidbody2D _rb;
 
   #endregion
@@ -30,7 +31,7 @@ public abstract class Character : MonoBehaviour
 
   protected virtual void Awake()
   {
-    _anim = GetComponent<Animator>();
+    anim = GetComponent<Animator>();
     _rb = GetComponent<Rigidbody2D>();
     healthBar = GetComponentInChildren<HealthBar>();
 
@@ -78,8 +79,8 @@ public abstract class Character : MonoBehaviour
     healthBar.SetHealthFill(healthPercent);
 
     // 播放hit动画
-    _anim.SetTrigger("hit");
-    
+    anim.SetTrigger("hit");
+
     // 设置isHit,以中断其他正在执行的一些动作
     isHit = true;
 
@@ -94,7 +95,7 @@ public abstract class Character : MonoBehaviour
   protected virtual void Die()
   {
     isDead = true;
-    
-    _anim.SetBool("isDead", true);
+
+    anim.SetBool("isDead", true);
   }
 }

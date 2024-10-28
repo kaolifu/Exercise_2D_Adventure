@@ -21,7 +21,7 @@ public class OrcIdleState : BaseState
     if (_idleTimer < 0)
       currentEnemy.ChangeState(StateType.Patrol);
 
-    if (currentEnemy.isHit)
+    if (currentEnemy.isHit || currentEnemy.viewCheck.hasFoundPlayer)
       currentEnemy.ChangeState(StateType.Chase);
   }
 

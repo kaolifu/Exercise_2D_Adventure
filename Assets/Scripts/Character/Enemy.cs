@@ -4,14 +4,21 @@ using UnityEngine;
 
 public abstract class Enemy : Character
 {
+  public Vector2 Velocity
+  {
+    get => _rb.velocity;
+    private set => _rb.velocity = value;
+  }
+
   [Header("Enemy Stats")] public float idleDuration;
   public float patrolSpeed;
-  public float patrolDuration;
   public float chaseSpeed;
+  public float chaseDuration;
+  public float chaseDistance;
 
   #region Components
 
-  [HideInInspector] public Animator anim;
+  [HideInInspector] public ViewCheck viewCheck;
 
   #endregion
 
@@ -27,7 +34,7 @@ public abstract class Enemy : Character
   protected override void Awake()
   {
     base.Awake();
-    anim = GetComponent<Animator>();
+    viewCheck = GetComponentInChildren<ViewCheck>();
   }
 
   protected virtual void OnEnable()

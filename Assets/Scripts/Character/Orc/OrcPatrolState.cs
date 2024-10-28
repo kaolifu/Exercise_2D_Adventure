@@ -7,7 +7,8 @@ public class OrcPatrolState : BaseState
 
   private Vector2 _destination;
 
-  private float timer;
+  private float _patrolTimer;
+  private float _buggedTimer = 0.5f;
 
   public override void OnEnter(Enemy enemy)
   {
@@ -16,18 +17,26 @@ public class OrcPatrolState : BaseState
     currentEnemy.anim.SetBool("isRun", true);
 
     _destination = GetRandomPosition();
-
-    timer = currentEnemy.patrolDuration;
   }
 
   public override void OnLogicUpdate()
   {
-    timer -= Time.deltaTime;
-    if (timer < 0)
+    // 当角色速度的绝对值小于0.1，则启动被卡住的timer，timer到时则重新进入patrol state
+    if (currentEnemy.Velocity.magnitude < 0.1)
+    {
+      _buggedTimer -= Time.deltaTime;
+      if (_buggedTimer < 0)
+      {
+        currentEnemy.ChangeState(StateType.Patrol);
+      }
+    }
+
+    // 当角色与目标地点的距离绝对值小于0.1，则意味着到达目的，切换到idle state
+    if ((_destination - (Vector2)currentEnemy.transform.position).magnitude < 0.1)
       currentEnemy.ChangeState(StateType.Idle);
 
-
-    if (currentEnemy.isHit)
+    // 当角色被攻击或者视线检查中发现玩家，则切换到chase state
+    if (currentEnemy.isHit || currentEnemy.viewCheck.hasFoundPlayer)
       currentEnemy.ChangeState(StateType.Chase);
   }
 
