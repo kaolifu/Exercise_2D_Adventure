@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,223 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BlueHouse01
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 131
+        width: 79
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35.5, y: -47.5}
+        - {x: -35.5, y: -10.5}
+        - {x: 38.5, y: -10.5}
+        - {x: 38.5, y: -33.5}
+        - {x: 30.5, y: -33.5}
+        - {x: 30.5, y: -47.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebfd8b3c7fd194875bac4741ccfdc7fb
+      internalID: -1512570172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueHouse_1_0_1
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 131
+        width: 79
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35.5, y: -47.5}
+        - {x: -35.5, y: -10.5}
+        - {x: 38.5, y: -10.5}
+        - {x: 38.5, y: -33.5}
+        - {x: 30.5, y: -33.5}
+        - {x: 30.5, y: -47.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57417c20aa9564440a4ec7a4426f1a3a
+      internalID: 1634384535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueHouse_1_0_2
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 131
+        width: 79
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35.5, y: -47.5}
+        - {x: -35.5, y: -10.5}
+        - {x: 38.5, y: -10.5}
+        - {x: 38.5, y: -33.5}
+        - {x: 30.5, y: -33.5}
+        - {x: 30.5, y: -47.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc9e0bfae1d443319e7da6438552f7d
+      internalID: -766782856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueHouse_1_0_3
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 131
+        width: 79
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35.5, y: -47.5}
+        - {x: -35.5, y: -10.5}
+        - {x: 38.5, y: -10.5}
+        - {x: 38.5, y: -33.5}
+        - {x: 30.5, y: -33.5}
+        - {x: 30.5, y: -47.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15bbab0e642694b82b419c224baf00f0
+      internalID: -378809219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueHouse_1_0_4
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 19
+        width: 79
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35.5, y: -47.5}
+        - {x: -35.5, y: -10.5}
+        - {x: 38.5, y: -10.5}
+        - {x: 38.5, y: -33.5}
+        - {x: 30.5, y: -33.5}
+        - {x: 30.5, y: -47.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7337725d5ca67499aa417d5f97a0a720
+      internalID: 1251925397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueHouse_1_0_5
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 19
+        width: 79
+        height: 103
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35.5, y: -47.5}
+        - {x: -35.5, y: -10.5}
+        - {x: 38.5, y: -10.5}
+        - {x: 38.5, y: -33.5}
+        - {x: 30.5, y: -33.5}
+        - {x: 30.5, y: -47.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c094dddcb755347f5b7b238503a61c95
+      internalID: 98991366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueHouse_1_0_6
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 19
+        width: 79
+        height: 104
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35.5, y: -47.5}
+        - {x: -35.5, y: -10.5}
+        - {x: 38.5, y: -10.5}
+        - {x: 38.5, y: -33.5}
+        - {x: 30.5, y: -33.5}
+        - {x: 30.5, y: -47.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5f0135b97e34745a9f5ddbe1170615
+      internalID: -528424211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blueHouse_1_0_7
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 19
+        width: 79
+        height: 105
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -35.5, y: -47.5}
+        - {x: -35.5, y: -10.5}
+        - {x: 38.5, y: -10.5}
+        - {x: 38.5, y: -33.5}
+        - {x: 30.5, y: -33.5}
+        - {x: 30.5, y: -47.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b7db84f978ac4fe793315633a2d8110
+      internalID: -1197583076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +348,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueHouse01: -1512570172
+      blueHouse_1_0_1: 1634384535
+      blueHouse_1_0_2: -766782856
+      blueHouse_1_0_3: -378809219
+      blueHouse_1_0_4: 1251925397
+      blueHouse_1_0_5: 98991366
+      blueHouse_1_0_6: -528424211
+      blueHouse_1_0_7: -1197583076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
