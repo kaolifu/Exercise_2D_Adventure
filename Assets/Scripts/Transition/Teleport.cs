@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour, IInterract
 {
+  [Header("广播")] public SceneLoadEventSO sceneLoadEvent;
+
+  [Header("属性")] public SceneSO sceneToLoad;
+  public Vector3 positionToGo;
+  public bool fade;
+
   public void Interact()
   {
-    Debug.Log("Teleport");
+    sceneLoadEvent.OnEventRaised(sceneToLoad, positionToGo, fade);
   }
 }
