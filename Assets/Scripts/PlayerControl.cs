@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class PlayerControl : MonoBehaviour
 
   public bool isPlayingAnimation;
 
+  [Header("广播")] public VoidEventSO pauseEvent;
+
   private void Awake()
   {
     _rb = GetComponent<Rigidbody2D>();
@@ -30,6 +33,7 @@ public class PlayerControl : MonoBehaviour
 
     _inputControl = new PlayerInputControl();
     _inputControl.Gameplay.Attack.started += Attack;
+    _inputControl.Gameplay.Escape.started += OnEscPressed;
   }
 
 
@@ -100,5 +104,10 @@ public class PlayerControl : MonoBehaviour
       canAttack = false;
       attackTimer = _weapon.attackCooldown;
     }
+  }
+
+  private void OnEscPressed(InputAction.CallbackContext obj)
+  {
+    pauseEvent.RaiseEvent();
   }
 }

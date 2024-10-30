@@ -1,0 +1,24 @@
+.Button {
+    min-width: 240px;
+    margin-right: 16px;
+    margin-left: 16px;
+    background-color: rgba(224, 24, 24, 0.77);
+    -unity-text-align: middle-center;
+    min-height: 80px;
+    font-size: 40px;
+    -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+}
+
+.Title {
+    align-self: auto;
+    align-items: auto;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    -unity-text-align: middle-center;
+    font-size: 140px;
+    -unity-font: url("project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=fa0c7d42a4a8d47d38b4249339d803f9&type=3#NotInter-Regular");
+    -unity-font-definition: initial;
+    height: auto;
+    margin-top: 20%;
+}
