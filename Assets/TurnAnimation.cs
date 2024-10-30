@@ -19,7 +19,9 @@ public class TurnAnimation : StateMachineBehaviour
   // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
   override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
   {
-    animator.GetComponent<PlayerControl>().isPlayingAnimation = false;
+    var playerControl = animator.GetComponent<PlayerControl>();
+
+    playerControl.isPlayingAnimation = false;
     var localScale = animator.gameObject.transform.localScale;
     animator.gameObject.transform.localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
   }
