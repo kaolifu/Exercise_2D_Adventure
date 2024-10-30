@@ -179,7 +179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: left-3
+      name: boundry-14
       rect:
         serializedVersion: 2
         x: 48
@@ -206,7 +206,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest__3
+      name: boundry-16
       rect:
         serializedVersion: 2
         x: 64
@@ -549,7 +549,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: left-4
+      name: boundry-15
       rect:
         serializedVersion: 2
         x: 48
@@ -574,7 +574,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest__19
+      name: boundry-17
       rect:
         serializedVersion: 2
         x: 64
@@ -913,7 +913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: left-10
+      name: boundry-19
       rect:
         serializedVersion: 2
         x: 48
@@ -938,7 +938,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest__35
+      name: boundry-21
       rect:
         serializedVersion: 2
         x: 64
@@ -1291,7 +1291,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: left-9
+      name: boundry-18
       rect:
         serializedVersion: 2
         x: 48
@@ -1318,7 +1318,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest__51
+      name: boundry-20
       rect:
         serializedVersion: 2
         x: 64
@@ -2709,7 +2709,15 @@ TextureImporter:
       boundry-11: -1434499709
       boundry-12: -1134965577
       boundry-13: -1948799370
+      boundry-14: -1548040776
+      boundry-15: -1857591256
+      boundry-16: 143072934
+      boundry-17: 94441252
+      boundry-18: 480197876
+      boundry-19: 1103758960
       boundry-2: -701950739
+      boundry-20: 78682345
+      boundry-21: -971048598
       boundry-3: -1114518040
       boundry-4: 880715879
       boundry-5: 1286692535
@@ -2749,7 +2757,6 @@ TextureImporter:
       forest__14: -769505881
       forest__15: 1813966450
       forest__17: -47795146
-      forest__19: 94441252
       forest__23: -483732730
       forest__24: 272088555
       forest__25: 634992927
@@ -2757,10 +2764,8 @@ TextureImporter:
       forest__27: -587209693
       forest__28: 139484951
       forest__29: -2105763247
-      forest__3: 143072934
       forest__30: -2005228620
       forest__31: 210789161
-      forest__35: -971048598
       forest__36: -303953043
       forest__37: 703746795
       forest__38: -1257178257
@@ -2773,7 +2778,6 @@ TextureImporter:
       forest__45: -1599652598
       forest__46: -312638374
       forest__47: -860894395
-      forest__51: 78682345
       forest__53: -1790216229
       forest__54: -734024760
       forest__55: -677117299
@@ -2814,11 +2818,7 @@ TextureImporter:
       forest__96: -900167769
       forest__97: -331902596
       forest__98: -293857391
-      left-10: 1103758960
-      left-3: -1548040776
-      left-4: -1857591256
       left-6: -279089452
-      left-9: 480197876
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

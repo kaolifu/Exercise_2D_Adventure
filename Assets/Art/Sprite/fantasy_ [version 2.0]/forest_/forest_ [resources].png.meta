@@ -816,90 +816,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_ [resources]_42
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 64
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.16}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae2ff7006f7824f87b5bb2582c536248
-      internalID: 2062092629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_ [resources]_43
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.16}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3aba7253e1e541a796360c0c42620b3
-      internalID: -188996841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_ [resources]_44
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 64
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.16}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6e58a722324d4c598cf3aeddef3cbb4
-      internalID: -1287977644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_ [resources]_45
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 64
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.16}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ae8a59df458d4308bd38d0d007633d5
-      internalID: 81690092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: forest_ [resources]_46
       rect:
         serializedVersion: 2
@@ -1026,13 +942,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_ [resources]_52
+      name: chest-close
       rect:
         serializedVersion: 2
         x: 48
         y: 48
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1047,34 +963,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: forest_ [resources]_53
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 48
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.16}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa4b678ba76e746968f67813ec06d512
-      internalID: 1207262120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_ [resources]_54
+      name: chest-open
       rect:
         serializedVersion: 2
         x: 80
         y: 48
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 9
       pivot: {x: 0.5, y: 0.16}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1084,27 +979,6 @@ TextureImporter:
       bones: []
       spriteID: 628db5e95626544b6ae40b783654f7a1
       internalID: 521802230
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: forest_ [resources]_55
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 48
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.5, y: 0.16}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62f7ca957a0c844ddb3b313828a94c97
-      internalID: 1383701866
       vertices: []
       indices: 
       edges: []
@@ -1503,6 +1377,8 @@ TextureImporter:
       bonfire2: 1202107610
       bonfire3: 1879878267
       bonfire4: 500256221
+      chest-close: 1741470434
+      chest-open: 521802230
       forest_ [resources]_0: 969914964
       forest_ [resources]_1: 169612979
       forest_ [resources]_12: -45624578
@@ -1547,9 +1423,7 @@ TextureImporter:
       forest_ [resources]_5: -1665297224
       forest_ [resources]_50: -495730614
       forest_ [resources]_51: -678347983
-      forest_ [resources]_52: 1741470434
       forest_ [resources]_53: 1207262120
-      forest_ [resources]_54: 521802230
       forest_ [resources]_55: 1383701866
       forest_ [resources]_56: -1426573752
       forest_ [resources]_57: 436543418
