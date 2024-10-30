@@ -6,4 +6,10 @@ namespace Enum
     Patrol,
     Chase
   }
+
+  public enum SceneType
+  {
+    Location,
+    Menu
+  }
 }

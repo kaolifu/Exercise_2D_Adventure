@@ -22,3 +22,9 @@
     height: auto;
     margin-top: 20%;
 }
+
+.Button:focus {
+    scale: 1.2 1.2;
+    transition-property: scale;
+    transition-duration: 0.4s;
+}

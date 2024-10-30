@@ -10,30 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Scenes
+  m_Name: Enemies
   m_EditorClassIdentifier: 
-  m_GroupName: Scenes
+  m_GroupName: Enemies
   m_Data:
     m_SerializedData: []
-  m_GUID: 215745fe6cac0494a9e53186332f63f3
+  m_GUID: 94ab91ea5abbb4bb7891f10d11273aec
   m_SerializeEntries:
-  - m_GUID: b07ea75110ee5453483596c4eab021ed
-    m_Address: Cave
+  - m_GUID: 3b662dc9c19184bc0bafbaf0b6a37aec
+    m_Address: Orc
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e53e885206de14e63a7d75ea1c479d0e
-    m_Address: Desert
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
-    m_Address: Forest
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ef104c8bdbad74354998590a1b319a7f
-    m_Address: StartMenu
+  - m_GUID: ca410c98f38cf4235ba95a7532f62b7c
+    m_Address: Ghost
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -41,5 +31,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: d3950ff1ff3f8441a8da2e7167bbb11f, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: c7b137c109e264c86b26750072434707, type: 2}
-    - {fileID: 11400000, guid: 77919ca419e2949698412884fe344413, type: 2}
+    - {fileID: 11400000, guid: 4875fe030453f465eb0538564ed8fcfd, type: 2}
+    - {fileID: 11400000, guid: 996b9a65d632f4e1a98f278ab80e5fef, type: 2}

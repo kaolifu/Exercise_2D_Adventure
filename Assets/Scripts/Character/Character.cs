@@ -28,6 +28,8 @@ public abstract class Character : MonoBehaviour
 
   [Header("Events")] public UnityEvent onTakeDamage;
 
+  [Header("监听")] public VoidEventSO newGameEvent;
+
 
   protected virtual void Awake()
   {
@@ -35,7 +37,18 @@ public abstract class Character : MonoBehaviour
     _rb = GetComponent<Rigidbody2D>();
     healthBar = GetComponentInChildren<HealthBar>();
 
+    isDead = false;
     InitHealth();
+  }
+
+  private void OnEnable()
+  {
+    newGameEvent.OnEventRaised += OnNewGameEvent;
+  }
+
+  private void OnDisable()
+  {
+    newGameEvent.OnEventRaised -= OnNewGameEvent;
   }
 
 
@@ -99,5 +112,11 @@ public abstract class Character : MonoBehaviour
     isDead = true;
 
     anim.SetBool("isDead", true);
+  }
+
+  private void OnNewGameEvent()
+  {
+    isDead = false;
+    InitHealth();
   }
 }

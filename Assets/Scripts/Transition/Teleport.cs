@@ -12,6 +12,6 @@ public class Teleport : MonoBehaviour, IInterract
 
   public void Interact()
   {
-    sceneLoadEvent.OnEventRaised(sceneToLoad, positionToGo, fade);
+    sceneLoadEvent.RaiseEvent(sceneToLoad, positionToGo, fade);
   }
 }

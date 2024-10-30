@@ -10,10 +10,10 @@ public class SceneLoadEventSO : ScriptableObject
   public Vector3 positionToGo;
   public bool fade;
 
-  public UnityAction<SceneSO, Vector2, bool> RaiseEvent;
+  public UnityAction<SceneSO, Vector2, bool> OnEventRaised;
 
-  public void OnEventRaised(SceneSO scene, Vector3 position, bool fadeInOut)
+  public void RaiseEvent(SceneSO scene, Vector3 position, bool fadeInOut)
   {
-    RaiseEvent?.Invoke(scene, position, fadeInOut);
+    OnEventRaised?.Invoke(scene, position, fadeInOut);
   }
 }

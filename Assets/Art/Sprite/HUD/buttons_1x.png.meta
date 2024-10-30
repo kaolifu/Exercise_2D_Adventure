@@ -131,7 +131,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,7 +152,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,16 +165,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons_1x_2
+      name: button1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
+        width: 24
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 5, z: 3, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -186,37 +186,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons_1x_3
+      name: button2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 56
         y: 0
-        width: 16
+        width: 24
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b0c28ac66bbc6401d89482ea55003688
-      internalID: -456031715
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttons_1x_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 4, z: 3, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -236,7 +215,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,7 +236,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,7 +257,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,11 +280,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      button1: 65044368
+      button2: -681266825
       buttons_1x_0: -692736009
       buttons_1x_1: 1864281334
-      buttons_1x_2: 65044368
       buttons_1x_3: -456031715
-      buttons_1x_4: -681266825
       buttons_1x_5: -327771160
       buttons_1x_6: -1181298411
       buttons_1x_7: -2040172000

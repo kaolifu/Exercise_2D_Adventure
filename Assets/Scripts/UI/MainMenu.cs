@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
   public VoidEventSO pauseEvent;
   public VoidEventSO fadeEvent;
 
+  [Header("广播")] public VoidEventSO newGameEvent;
+
   [Header("属性")] public float fadeDuration = 0.5f;
 
   private void Awake()
@@ -58,8 +60,8 @@ public class MainMenu : MonoBehaviour
 
   private void OnRestartButtonClicked(ClickEvent evt)
   {
-    // TODO:restart action
-    Debug.Log("restart clicked");
+    newGameEvent.RaiseEvent();
+    _gameOverScreen.style.display = DisplayStyle.None;
   }
 
   private void OnDeadEvent()
@@ -73,7 +75,7 @@ public class MainMenu : MonoBehaviour
       _pauseScreen.style.display == DisplayStyle.Flex ? DisplayStyle.None : DisplayStyle.Flex;
   }
 
-  
+
   // TODO: 有bug
   private void OnFadeEvent()
   {
@@ -87,7 +89,6 @@ public class MainMenu : MonoBehaviour
         1f,
         fadeDuration);
       Debug.Log("over fade in");
-
     }
     else
     {
@@ -98,9 +99,8 @@ public class MainMenu : MonoBehaviour
         0f,
         fadeDuration);
       _fadeScreen.style.display = DisplayStyle.None;
-      
-      Debug.Log("over fade out");
 
+      Debug.Log("over fade out");
     }
   }
 }

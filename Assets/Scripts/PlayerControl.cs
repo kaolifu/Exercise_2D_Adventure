@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enum;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -22,6 +23,8 @@ public class PlayerControl : MonoBehaviour
 
   public bool isPlayingAnimation;
 
+  [Header("监听")] public VoidEventSO sceneLoadedEvent;
+
   [Header("广播")] public VoidEventSO pauseEvent;
 
   private void Awake()
@@ -39,11 +42,14 @@ public class PlayerControl : MonoBehaviour
 
   private void OnEnable()
   {
-    _inputControl.Enable();
+    sceneLoadedEvent.OnEventRaised += OnSceneLoad;
   }
+
 
   private void OnDisable()
   {
+    sceneLoadedEvent.OnEventRaised -= OnSceneLoad;
+
     _inputControl.Disable();
   }
 
@@ -109,5 +115,10 @@ public class PlayerControl : MonoBehaviour
   private void OnEscPressed(InputAction.CallbackContext obj)
   {
     pauseEvent.RaiseEvent();
+  }
+
+  private void OnSceneLoad()
+  {
+    _inputControl.Enable();
   }
 }

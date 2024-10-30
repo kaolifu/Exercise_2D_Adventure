@@ -1,17 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Enum;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
   [Header("监听")] public SceneLoadEventSO sceneLoadEvent;
+  public VoidEventSO newGameEvent;
 
   [Header("广播")] public VoidEventSO fadeEvent;
   public VoidEventSO sceneLoadedEvent;
 
-  [Header("属性")] public SceneSO firstScene;
+  [Header("属性")] public SceneSO menuSO;
+  public SceneSO firstScene;
   public Vector3 firstScenePosition;
   private SceneSO _currentScene;
 
@@ -19,16 +22,25 @@ public class SceneManager : MonoBehaviour
 
   private void Awake()
   {
-    sceneLoadEvent.RaiseEvent += OnSceneLoadEvent;
+    sceneLoadEvent.OnEventRaised += OnSceneLoadEvent;
+    newGameEvent.OnEventRaised += OnNewGameEvent;
+
 
     _player = GameObject.FindGameObjectWithTag("Player");
 
-    OnSceneLoadEvent(firstScene, firstScenePosition, true);
+    OnSceneLoadEvent(menuSO, firstScenePosition, true);
   }
+
 
   private void OnDisable()
   {
-    sceneLoadEvent.RaiseEvent += OnSceneLoadEvent;
+    sceneLoadEvent.OnEventRaised -= OnSceneLoadEvent;
+    newGameEvent.OnEventRaised -= OnNewGameEvent;
+  }
+
+  private void OnNewGameEvent()
+  {
+    OnSceneLoadEvent(firstScene, firstScenePosition, true);
   }
 
   private void OnSceneLoadEvent(SceneSO sceneToLoad, Vector2 positionToGo, bool fade)
@@ -66,7 +78,10 @@ public class SceneManager : MonoBehaviour
     yield return sceneToLoad.sceneReference.LoadSceneAsync(LoadSceneMode.Additive);
     _currentScene = sceneToLoad;
 
-    sceneLoadedEvent.RaiseEvent();
+    if (sceneToLoad.sceneType != SceneType.Menu)
+      sceneLoadedEvent.RaiseEvent();
+
+
     if (fade)
     {
       // 淡出
