@@ -266,7 +266,55 @@ MonoBehaviour:
   fadeEvent: {fileID: 11400000, guid: 79dd2a10231e54afea09a86ae634eaca, type: 2}
   newGameEvent: {fileID: 11400000, guid: 90062aa76edea49b0bcc15aa2b5f8fe2, type: 2}
   backToMenuEvent: {fileID: 11400000, guid: 612b1ae045d8a44fb98fa4cf141ac569, type: 2}
+  saveDataEvent: {fileID: 11400000, guid: 0e3aece4ea4d54cfe9d1d0bc6411a0dd, type: 2}
+  loadGameEvent: {fileID: 11400000, guid: 0426a31d7bca9408b9e0562a3f729cf9, type: 2}
   fadeDuration: 0.5
+--- !u!1 &197176132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197176134}
+  - component: {fileID: 197176133}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &197176133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197176132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0807e60914743b689afc2af6aaa29d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveDataEvent: {fileID: 11400000, guid: 0e3aece4ea4d54cfe9d1d0bc6411a0dd, type: 2}
+  loadDataEvent: {fileID: 11400000, guid: 0426a31d7bca9408b9e0562a3f729cf9, type: 2}
+--- !u!4 &197176134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197176132}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &260391940
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +909,7 @@ MonoBehaviour:
   pauseEvent: {fileID: 11400000, guid: 8642480e408b54f8593343ef6ee39d2c, type: 2}
   playerDeadEvent: {fileID: 11400000, guid: 37998cbe8dbef4f66b35d9d671aed517, type: 2}
   newGameEvent: {fileID: 11400000, guid: 90062aa76edea49b0bcc15aa2b5f8fe2, type: 2}
+  backToMenuEvent: {fileID: 11400000, guid: 612b1ae045d8a44fb98fa4cf141ac569, type: 2}
 --- !u!4 &921973633
 Transform:
   m_ObjectHideFlags: 0
@@ -1849,6 +1898,7 @@ GameObject:
   - component: {fileID: 1897710386}
   - component: {fileID: 1897710382}
   - component: {fileID: 1897710385}
+  - component: {fileID: 1897710387}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2181,6 +2231,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1897710387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897710377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f1a2b30f88f473d8a4c30fbeaa673ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  persistentType: 0
+  ID: 322a3e39-67dc-4262-bc7a-38af557a4b01
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2197,3 +2261,4 @@ SceneRoots:
   - {fileID: 1006118955}
   - {fileID: 921973633}
   - {fileID: 1123262245}
+  - {fileID: 197176134}

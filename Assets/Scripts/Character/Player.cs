@@ -35,23 +35,33 @@ public class Player : Character, ISavable
     deadEvent.RaiseEvent();
   }
 
+  private DataDefinition GetDataID()
+  {
+    return GetComponent<DataDefinition>();
+  }
+
   public void SaveData(Data data)
   {
-    if (data.CharacterPosDict.ContainsKey(name))
+    if (data.CharacterPosDict.ContainsKey(GetDataID().ID))
     {
-      data.CharacterPosDict[name] = transform.position;
+      data.CharacterPosDict[GetDataID().ID] = transform.position;
+      data.FloatDataDict[GetDataID().ID + "health"] = health;
     }
     else
     {
-      data.CharacterPosDict.Add(name, transform.position);
+      data.CharacterPosDict.Add(GetDataID().ID, transform.position);
+      data.FloatDataDict.Add(GetDataID().ID + "health", health);
     }
   }
 
   public void LoadData(Data data)
   {
-    if (data.CharacterPosDict.ContainsKey(name))
+    if (data.CharacterPosDict.ContainsKey(GetDataID().ID))
     {
-      transform.position = data.CharacterPosDict[name];
+      transform.position = data.CharacterPosDict[GetDataID().ID];
+      health = data.FloatDataDict[GetDataID().ID + "health"];
+
+      UpdateHealthBar();
     }
   }
 }

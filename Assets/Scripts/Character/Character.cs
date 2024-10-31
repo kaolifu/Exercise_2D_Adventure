@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public abstract class Character : MonoBehaviour
 {
   [Header("Attribution")] [SerializeField]
-  private float health;
+  protected float health;
 
   [SerializeField] private float maxHealth;
 
@@ -76,6 +76,12 @@ public abstract class Character : MonoBehaviour
   {
     health = maxHealth;
     healthBar.SetHealthFill(1);
+  }
+
+  protected void UpdateHealthBar()
+  {
+    var percentage = health / maxHealth;
+    healthBar.SetHealthFill(percentage);
   }
 
   public void TakeDamage(float damage, Vector2 direction, float impactForce)

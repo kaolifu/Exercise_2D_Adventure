@@ -10,7 +10,8 @@ public class StartMenu : MonoBehaviour
   private VisualElement _clouds;
   private VisualElement _buttons;
 
-  public VoidEventSO newGameEvent;
+  [Header("Subject")] public VoidEventSO newGameEvent;
+  public VoidEventSO loadGameEvent;
 
   public float moveSpeed;
 
@@ -59,9 +60,8 @@ public class StartMenu : MonoBehaviour
       case "StartBtn":
         newGameEvent.RaiseEvent();
         break;
-      // TODO:读取存档
       case "ContinueBtn":
-        Debug.Log("ContinueBtn");
+        loadGameEvent.RaiseEvent();
         break;
       case "ExitBtn":
 #if UNITY_EDITOR

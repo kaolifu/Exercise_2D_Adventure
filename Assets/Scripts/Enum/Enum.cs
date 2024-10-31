@@ -12,4 +12,10 @@ namespace Enum
     Location,
     Menu
   }
+
+  public enum PersistentType
+  {
+    ReadWrite,
+    None
+  }
 }

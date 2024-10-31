@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newGameEvent: {fileID: 11400000, guid: 90062aa76edea49b0bcc15aa2b5f8fe2, type: 2}
+  loadGameEvent: {fileID: 11400000, guid: 0426a31d7bca9408b9e0562a3f729cf9, type: 2}
   moveSpeed: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
