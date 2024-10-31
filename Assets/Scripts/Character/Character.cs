@@ -72,7 +72,7 @@ public abstract class Character : MonoBehaviour
     }
   }
 
-  private void InitHealth()
+  protected void InitHealth()
   {
     health = maxHealth;
     healthBar.SetHealthFill(1);

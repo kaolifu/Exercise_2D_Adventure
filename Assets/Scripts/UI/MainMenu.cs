@@ -26,8 +26,11 @@ public class MainMenu : MonoBehaviour
   public VoidEventSO backToMenuEvent;
   public VoidEventSO saveDataEvent;
   public VoidEventSO loadGameEvent;
+  public VoidEventSO fadeCompleteEvent;
 
   [Header("属性")] public float fadeDuration = 0.5f;
+  private bool _isFading;
+  [SerializeField] private float _fadeTimer;
 
   private void Awake()
   {
@@ -117,32 +120,45 @@ public class MainMenu : MonoBehaviour
       _pauseScreen.style.display == DisplayStyle.Flex ? DisplayStyle.None : DisplayStyle.Flex;
   }
 
+  private void Update()
+  {
+    // if (_isFading)
+    // {
+    //   _fadeScreen.style.display = DisplayStyle.Flex;
+    //
+    //   _fadeTimer += Time.deltaTime;
+    //   _fadeScreen.style.opacity = _fadeTimer / fadeDuration;
+    //
+    //   if (_fadeTimer >= fadeDuration)
+    //   {
+    //     _isFading = false;
+    //     _fadeScreen.style.display = DisplayStyle.None;
+    //     _fadeTimer = 0;
+    //   }
+    // }
+  }
+
 
   // TODO: 有bug
   private void OnFadeEvent()
   {
-    if (_fadeScreen.style.display == DisplayStyle.None)
+    StartCoroutine(Fade());
+  }
+
+  private IEnumerator Fade()
+  {
+    _fadeScreen.style.display = DisplayStyle.Flex;
+
+    _fadeTimer = 0;
+    while (_fadeTimer < fadeDuration)
     {
-      Debug.Log("start fade in");
-      _fadeScreen.style.display = DisplayStyle.Flex;
-
-      DOTween.To(() => _fadeScreen.style.opacity.value,
-        x => _fadeScreen.style.opacity = x,
-        1f,
-        fadeDuration);
-      Debug.Log("over fade in");
+      _fadeTimer += Time.deltaTime;
+      _fadeScreen.style.opacity = _fadeTimer / fadeDuration * 100;
+      yield return null;
     }
-    else
-    {
-      Debug.Log("start fade out");
 
-      DOTween.To(() => _fadeScreen.style.opacity.value,
-        x => _fadeScreen.style.opacity = x,
-        0f,
-        fadeDuration);
-      _fadeScreen.style.display = DisplayStyle.None;
+    fadeCompleteEvent.RaiseEvent();
 
-      Debug.Log("over fade out");
-    }
+    _fadeScreen.style.display = DisplayStyle.None;
   }
 }

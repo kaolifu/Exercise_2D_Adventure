@@ -8,11 +8,16 @@ public class Player : Character, ISavable
 {
   [Header("广播")] public VoidEventSO deadEvent;
 
+  [Header("监听")] public VoidEventSO loadGameEvent;
+
+
   protected override void OnEnable()
   {
     base.OnEnable();
     ISavable savable = this;
     savable.RegisterSaveData();
+
+    loadGameEvent.OnEventRaised += OnGameLoadedEvent;
   }
 
   protected override void OnDisable()
@@ -20,6 +25,8 @@ public class Player : Character, ISavable
     base.OnDisable();
     ISavable savable = this;
     savable.UnregisterSaveData();
+
+    loadGameEvent.OnEventRaised -= OnGameLoadedEvent;
   }
 
 
@@ -64,5 +71,11 @@ public class Player : Character, ISavable
 
       UpdateHealthBar();
     }
+  }
+
+  private void OnGameLoadedEvent()
+  {
+    isDead = false;
+    InitHealth();
   }
 }

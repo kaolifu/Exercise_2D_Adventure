@@ -11,6 +11,7 @@ public class SceneManager : MonoBehaviour, ISavable
   [Header("监听")] public SceneLoadEventSO sceneLoadEvent;
   public VoidEventSO newGameEvent;
   public VoidEventSO backToMenuEvent;
+  public VoidEventSO fadeCompleteEvent;
 
   [Header("广播")] public VoidEventSO fadeEvent;
   public VoidEventSO sceneLoadedEvent;
@@ -19,6 +20,7 @@ public class SceneManager : MonoBehaviour, ISavable
   public SceneSO firstScene;
   public Vector3 firstScenePosition;
   private SceneSO _currentScene;
+  [SerializeField]private bool _isFadeCompleted;
 
   private GameObject _player;
 
@@ -43,14 +45,17 @@ public class SceneManager : MonoBehaviour, ISavable
     sceneLoadEvent.OnEventRaised -= OnSceneLoadEvent;
     newGameEvent.OnEventRaised -= OnNewGameEvent;
     backToMenuEvent.OnEventRaised -= LoadMenuScene;
+    fadeCompleteEvent.OnEventRaised -= OnFadeCompleteEvent;
+
 
     ISavable savable = this;
     savable.UnregisterSaveData();
   }
 
+
   private void LoadMenuScene()
   {
-    OnSceneLoadEvent(menuSO, firstScenePosition, true);
+    OnSceneLoadEvent(menuSO, firstScenePosition, false);
   }
 
 
@@ -74,8 +79,11 @@ public class SceneManager : MonoBehaviour, ISavable
   {
     if (fade)
     {
-      // 淡入
+      
+      // TODO: bug
+      // _isFadeCompleted = false;
       // fadeEvent.RaiseEvent();
+      // yield return new WaitUntil(() => _isFadeCompleted);
     }
 
     if (_currentScene != null)
@@ -100,10 +108,17 @@ public class SceneManager : MonoBehaviour, ISavable
 
     if (fade)
     {
-      // 淡出
+      // _isFadeCompleted = false;
       // fadeEvent.RaiseEvent();
+      // yield return new WaitUntil(() => _isFadeCompleted);
     }
   }
+
+  private void OnFadeCompleteEvent()
+  {
+    _isFadeCompleted = true;
+  }
+
 
   private DataDefinition GetDataID()
   {
