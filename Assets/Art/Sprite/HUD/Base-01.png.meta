@@ -123,16 +123,16 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Base-01_0
+      name: Background
       rect:
         serializedVersion: 2
         x: 0
-        y: 208
-        width: 80
-        height: 96
+        y: 240
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 13, y: 13, z: 13, w: 12}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -249,16 +249,16 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Base-01_6
+      name: title background
       rect:
         serializedVersion: 2
         x: 243
-        y: 263
-        width: 121
-        height: 30
+        y: 266
+        width: 58
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 3, y: 10, z: 3, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1855,7 +1855,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Base-01_0: -757962133
+      Background: -757962133
       Base-01_10: -1302077109
       Base-01_11: -1372325547
       Base-01_12: -1476792483
@@ -1910,7 +1910,6 @@ TextureImporter:
       Base-01_57: -1260742618
       Base-01_58: 1231370116
       Base-01_59: 709212635
-      Base-01_6: -21514510
       Base-01_60: 1555003447
       Base-01_61: 811074055
       Base-01_62: -1541582053
@@ -1937,6 +1936,7 @@ TextureImporter:
       Base-01_9: 845489121
       health-fill: 2145232768
       health-frame: -2109399402
+      title background: -21514510
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

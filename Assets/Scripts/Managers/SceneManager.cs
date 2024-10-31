@@ -20,7 +20,7 @@ public class SceneManager : MonoBehaviour, ISavable
   public SceneSO firstScene;
   public Vector3 firstScenePosition;
   private SceneSO _currentScene;
-  [SerializeField]private bool _isFadeCompleted;
+  // [SerializeField] private bool _isFadeCompleted;
 
   private GameObject _player;
 
@@ -29,6 +29,8 @@ public class SceneManager : MonoBehaviour, ISavable
     sceneLoadEvent.OnEventRaised += OnSceneLoadEvent;
     newGameEvent.OnEventRaised += OnNewGameEvent;
     backToMenuEvent.OnEventRaised += LoadMenuScene;
+    fadeCompleteEvent.OnEventRaised += OnFadeCompleteEvent;
+
 
     ISavable savable = this;
     savable.RegisterSaveData();
@@ -79,7 +81,6 @@ public class SceneManager : MonoBehaviour, ISavable
   {
     if (fade)
     {
-      
       // TODO: bug
       // _isFadeCompleted = false;
       // fadeEvent.RaiseEvent();
@@ -116,7 +117,7 @@ public class SceneManager : MonoBehaviour, ISavable
 
   private void OnFadeCompleteEvent()
   {
-    _isFadeCompleted = true;
+    // _isFadeCompleted = true;
   }
 
 

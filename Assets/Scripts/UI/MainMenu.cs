@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
   private VisualElement _gameOverScreen;
   private VisualElement _pauseScreen;
   private VisualElement _fadeScreen;
+  private VisualElement _infoScreen;
 
   private GroupBox _pauseButtons;
   private GroupBox _gameOverButtons;
@@ -21,6 +22,7 @@ public class MainMenu : MonoBehaviour
   [Header("监听")] public VoidEventSO deadEvent;
   public VoidEventSO pauseEvent;
   public VoidEventSO fadeEvent;
+  public PlayerEventSO infoEvent;
 
   [Header("广播")] public VoidEventSO newGameEvent;
   public VoidEventSO backToMenuEvent;
@@ -39,12 +41,14 @@ public class MainMenu : MonoBehaviour
     _gameOverScreen = _document.rootVisualElement.Q<VisualElement>("GameOverScreen");
     _pauseScreen = _document.rootVisualElement.Q<VisualElement>("PauseScreen");
     _fadeScreen = _document.rootVisualElement.Q<VisualElement>("FadeScreen");
+    _infoScreen = _document.rootVisualElement.Q<VisualElement>("InfoScreen");
 
     _buttons = _document.rootVisualElement.Query<Button>().ToList();
 
     deadEvent.OnEventRaised += OnDeadEvent;
     pauseEvent.OnEventRaised += OnPauseEvent;
     fadeEvent.OnEventRaised += OnFadeEvent;
+    infoEvent.OnEventRaised += OnInfoEvent;
 
     foreach (var button in _buttons)
     {
@@ -52,11 +56,14 @@ public class MainMenu : MonoBehaviour
     }
   }
 
+
   private void OnDisable()
   {
     deadEvent.OnEventRaised -= OnDeadEvent;
     pauseEvent.OnEventRaised -= OnPauseEvent;
     fadeEvent.OnEventRaised -= OnFadeEvent;
+    infoEvent.OnEventRaised -= OnInfoEvent;
+
 
     foreach (var button in _buttons)
     {
@@ -119,6 +126,25 @@ public class MainMenu : MonoBehaviour
     _pauseScreen.style.display =
       _pauseScreen.style.display == DisplayStyle.Flex ? DisplayStyle.None : DisplayStyle.Flex;
   }
+
+  private void OnInfoEvent(Player player)
+  {
+    if (_infoScreen.style.visibility == Visibility.Hidden)
+    {
+      _infoScreen.style.visibility = Visibility.Visible;
+
+      GameManager.StopGame();
+
+      _infoScreen.Q("hp").Q<Label>("content").text = player.health + "/" + player.maxHealth;
+    }
+    else
+    {
+      _infoScreen.style.visibility = Visibility.Hidden;
+
+      GameManager.StartGame();
+    }
+  }
+
 
   private void Update()
   {

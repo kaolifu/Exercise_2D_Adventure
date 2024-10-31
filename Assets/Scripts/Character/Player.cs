@@ -9,6 +9,11 @@ public class Player : Character, ISavable
   [Header("广播")] public VoidEventSO deadEvent;
 
   [Header("监听")] public VoidEventSO loadGameEvent;
+  
+  [Header("属性")] public int level = 1;
+  public int currentExp;
+  public int needExp;
+  
 
 
   protected override void OnEnable()

@@ -26,6 +26,7 @@ public class PlayerControl : MonoBehaviour
   [Header("监听")] public VoidEventSO sceneLoadedEvent;
 
   [Header("广播")] public VoidEventSO pauseEvent;
+  public PlayerEventSO infoEvent;
 
   private void Awake()
   {
@@ -37,6 +38,7 @@ public class PlayerControl : MonoBehaviour
     _inputControl = new PlayerInputControl();
     _inputControl.Gameplay.Attack.started += Attack;
     _inputControl.Gameplay.Escape.started += OnEscPressed;
+    _inputControl.Gameplay.Info.started += OnInfoPressed;
   }
 
 
@@ -116,6 +118,12 @@ public class PlayerControl : MonoBehaviour
   {
     pauseEvent.RaiseEvent();
   }
+
+  private void OnInfoPressed(InputAction.CallbackContext obj)
+  {
+    infoEvent.RaiseEvent(_player);
+  }
+
 
   private void OnSceneLoad()
   {

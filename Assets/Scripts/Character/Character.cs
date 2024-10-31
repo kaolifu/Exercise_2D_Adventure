@@ -8,9 +8,9 @@ using UnityEngine.Serialization;
 public abstract class Character : MonoBehaviour
 {
   [Header("Attribution")] [SerializeField]
-  protected float health;
+  public float health;
 
-  [SerializeField] private float maxHealth;
+  [SerializeField] public float maxHealth;
 
   [Header("Stats")] public bool isHit;
   public bool isDead;

@@ -5,12 +5,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+  public static GameManager instance;
+
+
   [Header("监听")] public VoidEventSO pauseEvent;
   public VoidEventSO playerDeadEvent;
   public VoidEventSO newGameEvent;
   public VoidEventSO backToMenuEvent;
   public VoidEventSO saveGameEvent;
   public VoidEventSO loadGameEvent;
+
+  private void Awake()
+  {
+    if (instance == null)
+    {
+      instance = this;
+    }
+    else
+    {
+      Destroy(gameObject);
+    }
+  }
 
   private void OnEnable()
   {
@@ -38,12 +53,12 @@ public class GameManager : MonoBehaviour
     else if (Mathf.Approximately(Time.timeScale, 1)) Time.timeScale = 0;
   }
 
-  private void StopGame()
+  public static void StopGame()
   {
     Time.timeScale = 0;
   }
 
-  private void StartGame()
+  public static void StartGame()
   {
     Time.timeScale = 1;
   }

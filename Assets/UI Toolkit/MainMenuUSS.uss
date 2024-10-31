@@ -29,3 +29,26 @@
     transition-property: scale;
     transition-duration: 0.4s;
 }
+
+.InfoTitle {
+    font-size: 60px;
+    position: absolute;
+    -unity-font: resource('Fonts & Materials/ChillBitmap_7px');
+    -unity-font-definition: initial;
+    top: 0;
+    left: 50%;
+    background-image: url("project://database/Assets/Art/Sprite/HUD/Base-01.png?fileID=-21514510&guid=5b50cf69da5f84e87a08482dd7bd5313&type=3#title background");
+    width: 320px;
+    height: 120px;
+    -unity-text-align: middle-center;
+    translate: -50% -50%;
+}
+
+.text {
+    font-size: 40px;
+    -unity-font-definition: initial;
+}
+
+.raw-item {
+    flex-direction: row;
+}
