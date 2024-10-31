@@ -910,6 +910,8 @@ MonoBehaviour:
   playerDeadEvent: {fileID: 11400000, guid: 37998cbe8dbef4f66b35d9d671aed517, type: 2}
   newGameEvent: {fileID: 11400000, guid: 90062aa76edea49b0bcc15aa2b5f8fe2, type: 2}
   backToMenuEvent: {fileID: 11400000, guid: 612b1ae045d8a44fb98fa4cf141ac569, type: 2}
+  saveGameEvent: {fileID: 11400000, guid: 0e3aece4ea4d54cfe9d1d0bc6411a0dd, type: 2}
+  loadGameEvent: {fileID: 11400000, guid: 0426a31d7bca9408b9e0562a3f729cf9, type: 2}
 --- !u!4 &921973633
 Transform:
   m_ObjectHideFlags: 0

@@ -42,14 +42,15 @@ public class Player : Character, ISavable
 
   public void SaveData(Data data)
   {
+    var serializableVector3 = new SerializableVector3(transform.position);
     if (data.CharacterPosDict.ContainsKey(GetDataID().ID))
     {
-      data.CharacterPosDict[GetDataID().ID] = transform.position;
+      data.CharacterPosDict[GetDataID().ID] = serializableVector3;
       data.FloatDataDict[GetDataID().ID + "health"] = health;
     }
     else
     {
-      data.CharacterPosDict.Add(GetDataID().ID, transform.position);
+      data.CharacterPosDict.Add(GetDataID().ID, serializableVector3);
       data.FloatDataDict.Add(GetDataID().ID + "health", health);
     }
   }
@@ -58,7 +59,7 @@ public class Player : Character, ISavable
   {
     if (data.CharacterPosDict.ContainsKey(GetDataID().ID))
     {
-      transform.position = data.CharacterPosDict[GetDataID().ID];
+      transform.position = data.CharacterPosDict[GetDataID().ID].ToVector3();
       health = data.FloatDataDict[GetDataID().ID + "health"];
 
       UpdateHealthBar();

@@ -20,8 +20,6 @@ public class DataManager : MonoBehaviour
       Instance = this;
     else
       Destroy(gameObject);
-
-    _saveData = new Data();
   }
 
   private void OnEnable()
@@ -48,14 +46,26 @@ public class DataManager : MonoBehaviour
 
   private void OnSaveDataEvent()
   {
+    _saveData = new Data();
+
     foreach (ISavable savableItem in _savableList)
     {
       savableItem.SaveData(_saveData);
     }
+
+    foreach (var item in _saveData.CharacterPosDict)
+    {
+      Debug.Log(item.Key + " : " + item.Value);
+    }
+
+    _saveData.SaveToFile(Application.persistentDataPath + "/data.json");
   }
 
   private void OnLoadDataEvent()
   {
+    _saveData = Data.LoadFromFile(Application.persistentDataPath + "/data.json");
+
+
     foreach (ISavable savableItem in _savableList)
     {
       savableItem.LoadData(_saveData);

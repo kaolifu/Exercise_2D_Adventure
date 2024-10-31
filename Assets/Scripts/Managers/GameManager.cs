@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
   public VoidEventSO playerDeadEvent;
   public VoidEventSO newGameEvent;
   public VoidEventSO backToMenuEvent;
+  public VoidEventSO saveGameEvent;
+  public VoidEventSO loadGameEvent;
 
   private void OnEnable()
   {
@@ -16,6 +18,8 @@ public class GameManager : MonoBehaviour
     playerDeadEvent.OnEventRaised += StopGame;
     newGameEvent.OnEventRaised += StartGame;
     backToMenuEvent.OnEventRaised += StartGame;
+    saveGameEvent.OnEventRaised += StartGame;
+    loadGameEvent.OnEventRaised += StartGame;
   }
 
   private void OnDisable()
@@ -24,6 +28,8 @@ public class GameManager : MonoBehaviour
     playerDeadEvent.OnEventRaised -= StopGame;
     newGameEvent.OnEventRaised -= StartGame;
     backToMenuEvent.OnEventRaised -= StartGame;
+    saveGameEvent.OnEventRaised -= StartGame;
+    loadGameEvent.OnEventRaised -= StartGame;
   }
 
   private void OnPauseEvent()

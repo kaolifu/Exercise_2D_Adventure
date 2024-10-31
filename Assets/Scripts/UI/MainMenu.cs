@@ -67,10 +67,10 @@ public class MainMenu : MonoBehaviour
     switch (currentBtn.name)
     {
       case "SaveBtn":
-        saveDataEvent.RaiseEvent();
+        SaveGame();
         break;
       case "LoadBtn":
-        loadGameEvent.RaiseEvent();
+        LoadGame();
         break;
       case "RestartBtn":
         NewGame();
@@ -79,6 +79,18 @@ public class MainMenu : MonoBehaviour
         ExitGame();
         break;
     }
+  }
+
+  private void SaveGame()
+  {
+    saveDataEvent.RaiseEvent();
+    _pauseScreen.style.display = DisplayStyle.None;
+  }
+
+  private void LoadGame()
+  {
+    loadGameEvent.RaiseEvent();
+    _pauseScreen.style.display = DisplayStyle.None;
   }
 
   private void NewGame()

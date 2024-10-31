@@ -120,7 +120,7 @@ public class SceneManager : MonoBehaviour, ISavable
     var playerID = _player.GetComponent<DataDefinition>().ID;
     if (data.CharacterPosDict.ContainsKey(playerID))
     {
-      var position = data.CharacterPosDict[playerID];
+      var position = data.CharacterPosDict[playerID].ToVector3();
       var sceneToLoad = data.LoadGameScene();
 
       OnSceneLoadEvent(sceneToLoad, position, true);
