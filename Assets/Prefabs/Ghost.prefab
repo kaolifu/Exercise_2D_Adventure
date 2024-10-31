@@ -765,6 +765,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  newGameEvent: {fileID: 11400000, guid: 90062aa76edea49b0bcc15aa2b5f8fe2, type: 2}
   idleDuration: 1
   patrolSpeed: 1.5
   chaseSpeed: 4

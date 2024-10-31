@@ -52,11 +52,6 @@ public class DataManager : MonoBehaviour
     {
       savableItem.SaveData(_saveData);
     }
-
-    foreach (var item in _saveData.CharacterPosDict)
-    {
-      Debug.Log(item.Key + " : " + item.Value);
-    }
   }
 
   private void OnLoadDataEvent()

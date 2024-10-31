@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Enum;
+using SaveAndLoad;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManager : MonoBehaviour
+public class SceneManager : MonoBehaviour, ISavable
 {
   [Header("监听")] public SceneLoadEventSO sceneLoadEvent;
   public VoidEventSO newGameEvent;
@@ -27,6 +28,9 @@ public class SceneManager : MonoBehaviour
     newGameEvent.OnEventRaised += OnNewGameEvent;
     backToMenuEvent.OnEventRaised += LoadMenuScene;
 
+    ISavable savable = this;
+    savable.RegisterSaveData();
+
 
     _player = GameObject.FindGameObjectWithTag("Player");
 
@@ -39,6 +43,9 @@ public class SceneManager : MonoBehaviour
     sceneLoadEvent.OnEventRaised -= OnSceneLoadEvent;
     newGameEvent.OnEventRaised -= OnNewGameEvent;
     backToMenuEvent.OnEventRaised -= LoadMenuScene;
+
+    ISavable savable = this;
+    savable.UnregisterSaveData();
   }
 
   private void LoadMenuScene()
@@ -95,6 +102,28 @@ public class SceneManager : MonoBehaviour
     {
       // 淡出
       // fadeEvent.RaiseEvent();
+    }
+  }
+
+  private DataDefinition GetDataID()
+  {
+    return GetComponent<DataDefinition>();
+  }
+
+  public void SaveData(Data data)
+  {
+    data.SaveGameScene(_currentScene);
+  }
+
+  public void LoadData(Data data)
+  {
+    var playerID = _player.GetComponent<DataDefinition>().ID;
+    if (data.CharacterPosDict.ContainsKey(playerID))
+    {
+      var position = data.CharacterPosDict[playerID];
+      var sceneToLoad = data.LoadGameScene();
+
+      OnSceneLoadEvent(sceneToLoad, position, true);
     }
   }
 }
