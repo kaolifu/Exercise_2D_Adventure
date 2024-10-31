@@ -38,7 +38,8 @@ public abstract class Character : MonoBehaviour
     healthBar = GetComponentInChildren<HealthBar>();
 
     isDead = false;
-    InitHealth();
+    MaximizeHealth();
+    UpdateHealthBar();
   }
 
   protected virtual void OnEnable()
@@ -72,11 +73,11 @@ public abstract class Character : MonoBehaviour
     }
   }
 
-  protected void InitHealth()
+  private void MaximizeHealth()
   {
     health = maxHealth;
-    healthBar.SetHealthFill(1);
   }
+
 
   protected void UpdateHealthBar()
   {
@@ -123,6 +124,7 @@ public abstract class Character : MonoBehaviour
   private void OnNewGameEvent()
   {
     isDead = false;
-    InitHealth();
+    MaximizeHealth();
+    UpdateHealthBar();
   }
 }

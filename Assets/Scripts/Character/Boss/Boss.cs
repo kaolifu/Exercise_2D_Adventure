@@ -22,13 +22,7 @@ public class Boss : Enemy
 
     currentState = idleState;
   }
-
-  protected override void Die()
-  {
-    base.Die();
-    Destroy(gameObject, 2.0f);
-  }
-
+  
   public void Jump(Vector3 targetPos)
   {
     StartCoroutine(JumpSkill(targetPos));

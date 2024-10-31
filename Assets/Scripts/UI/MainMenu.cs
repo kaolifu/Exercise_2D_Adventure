@@ -129,17 +129,22 @@ public class MainMenu : MonoBehaviour
 
   private void OnInfoEvent(Player player)
   {
-    if (_infoScreen.style.visibility == Visibility.Hidden)
+    Debug.Log(_infoScreen.style.display.value);
+
+
+    if (_infoScreen.style.display.value == DisplayStyle.None)
     {
-      _infoScreen.style.visibility = Visibility.Visible;
+      _infoScreen.style.display = DisplayStyle.Flex;
 
       GameManager.StopGame();
 
       _infoScreen.Q("hp").Q<Label>("content").text = player.health + "/" + player.maxHealth;
+      _infoScreen.Q("lv").Q<Label>("content").text = player.Level + "";
+      _infoScreen.Q("exp").Q<Label>("content").text = player.CurrentExp + "/" + player.NeededExp;
     }
     else
     {
-      _infoScreen.style.visibility = Visibility.Hidden;
+      _infoScreen.style.display = DisplayStyle.None;
 
       GameManager.StartGame();
     }

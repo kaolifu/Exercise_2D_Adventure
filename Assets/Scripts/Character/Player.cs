@@ -9,12 +9,27 @@ public class Player : Character, ISavable
   [Header("广播")] public VoidEventSO deadEvent;
 
   [Header("监听")] public VoidEventSO loadGameEvent;
-  
-  [Header("属性")] public int level = 1;
-  public int currentExp;
-  public int needExp;
-  
 
+  private int _level;
+  private int _currentExp;
+
+  public int Level
+  {
+    get
+    {
+      if (_level == 0) _level = 1;
+      return _level;
+    }
+    private set => _level = value;
+  }
+
+  public int NeededExp => _level * 100;
+
+  public int CurrentExp
+  {
+    get => _currentExp;
+    private set => _currentExp = value;
+  }
 
   protected override void OnEnable()
   {
@@ -59,11 +74,17 @@ public class Player : Character, ISavable
     {
       data.CharacterPosDict[GetDataID().ID] = serializableVector3;
       data.FloatDataDict[GetDataID().ID + "health"] = health;
+      data.FloatDataDict[GetDataID().ID + "maxHealth"] = maxHealth;
+      data.FloatDataDict[GetDataID().ID + "level"] = Level;
+      data.FloatDataDict[GetDataID().ID + "exp"] = CurrentExp;
     }
     else
     {
       data.CharacterPosDict.Add(GetDataID().ID, serializableVector3);
       data.FloatDataDict.Add(GetDataID().ID + "health", health);
+      data.FloatDataDict.Add(GetDataID().ID + "maxHealth", maxHealth);
+      data.FloatDataDict.Add(GetDataID().ID + "level", Level);
+      data.FloatDataDict.Add(GetDataID().ID + "exp", CurrentExp);
     }
   }
 
@@ -73,6 +94,9 @@ public class Player : Character, ISavable
     {
       transform.position = data.CharacterPosDict[GetDataID().ID].ToVector3();
       health = data.FloatDataDict[GetDataID().ID + "health"];
+      maxHealth = data.FloatDataDict[GetDataID().ID + "maxHealth"];
+      _level = (int)data.FloatDataDict[GetDataID().ID + "level"];
+      _currentExp = (int)data.FloatDataDict[GetDataID().ID + "exp"];
 
       UpdateHealthBar();
     }
@@ -81,6 +105,17 @@ public class Player : Character, ISavable
   private void OnGameLoadedEvent()
   {
     isDead = false;
-    InitHealth();
+    UpdateHealthBar();
+  }
+
+  public void IncreaseExp(int amount)
+  {
+    CurrentExp += amount;
+
+    if (CurrentExp >= NeededExp)
+    {
+      _currentExp -= NeededExp;
+      _level += 1;
+    }
   }
 }

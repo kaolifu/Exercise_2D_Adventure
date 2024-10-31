@@ -10,10 +10,4 @@ public class Orc : Enemy
 
     currentState = idleState;
   }
-
-  protected override void Die()
-  {
-    base.Die();
-    Destroy(gameObject, 2.0f);
-  }
 }

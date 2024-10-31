@@ -10,6 +10,8 @@ public abstract class Enemy : Character
     private set => _rb.velocity = value;
   }
 
+  [Header("属性")] public int exp;
+
   [Header("Enemy Stats")] public float idleDuration;
   public float patrolSpeed;
   public float chaseSpeed;
@@ -20,6 +22,7 @@ public abstract class Enemy : Character
 
   [HideInInspector] public ViewCheck viewCheck;
   [Header("Components")] public RectTransform canvasRectTransform;
+  private Player _player;
 
   #endregion
 
@@ -36,6 +39,8 @@ public abstract class Enemy : Character
   {
     base.Awake();
     viewCheck = GetComponentInChildren<ViewCheck>();
+
+    _player = FindObjectOfType<Player>();
   }
 
   protected override void OnEnable()
@@ -104,5 +109,13 @@ public abstract class Enemy : Character
     transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     canvasRectTransform.localScale = new Vector3(-canvasRectTransform.localScale.x, canvasRectTransform.localScale.y,
       transform.localScale.z);
+  }
+
+  protected override void Die()
+  {
+    base.Die();
+    Destroy(gameObject, 2.0f);
+
+    _player.IncreaseExp(exp);
   }
 }
