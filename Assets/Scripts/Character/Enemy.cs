@@ -19,7 +19,7 @@ public abstract class Enemy : Character
   #region Components
 
   [HideInInspector] public ViewCheck viewCheck;
-  [Header("Components")]public RectTransform canvasRectTransform;
+  [Header("Components")] public RectTransform canvasRectTransform;
 
   #endregion
 
@@ -38,10 +38,12 @@ public abstract class Enemy : Character
     viewCheck = GetComponentInChildren<ViewCheck>();
   }
 
-  protected virtual void OnEnable()
+  protected override void OnEnable()
   {
+    base.OnEnable();
     currentState.OnEnter(this);
   }
+
 
   protected override void Update()
   {
@@ -54,10 +56,12 @@ public abstract class Enemy : Character
     currentState.OnPhysicsUpdate();
   }
 
-  protected void OnDisable()
+  protected override void OnDisable()
   {
+    base.OnDisable();
     currentState.OnExit();
   }
+
 
   public void ChangeState(StateType type)
   {

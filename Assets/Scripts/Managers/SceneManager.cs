@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour
 {
   [Header("监听")] public SceneLoadEventSO sceneLoadEvent;
   public VoidEventSO newGameEvent;
+  public VoidEventSO backToMenuEvent;
 
   [Header("广播")] public VoidEventSO fadeEvent;
   public VoidEventSO sceneLoadedEvent;
@@ -24,11 +25,12 @@ public class SceneManager : MonoBehaviour
   {
     sceneLoadEvent.OnEventRaised += OnSceneLoadEvent;
     newGameEvent.OnEventRaised += OnNewGameEvent;
+    backToMenuEvent.OnEventRaised += LoadMenuScene;
 
 
     _player = GameObject.FindGameObjectWithTag("Player");
 
-    OnSceneLoadEvent(menuSO, firstScenePosition, true);
+    LoadMenuScene();
   }
 
 
@@ -36,7 +38,14 @@ public class SceneManager : MonoBehaviour
   {
     sceneLoadEvent.OnEventRaised -= OnSceneLoadEvent;
     newGameEvent.OnEventRaised -= OnNewGameEvent;
+    backToMenuEvent.OnEventRaised -= LoadMenuScene;
   }
+
+  private void LoadMenuScene()
+  {
+    OnSceneLoadEvent(menuSO, firstScenePosition, true);
+  }
+
 
   private void OnNewGameEvent()
   {

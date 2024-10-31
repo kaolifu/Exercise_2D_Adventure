@@ -265,6 +265,7 @@ MonoBehaviour:
   pauseEvent: {fileID: 11400000, guid: 8642480e408b54f8593343ef6ee39d2c, type: 2}
   fadeEvent: {fileID: 11400000, guid: 79dd2a10231e54afea09a86ae634eaca, type: 2}
   newGameEvent: {fileID: 11400000, guid: 90062aa76edea49b0bcc15aa2b5f8fe2, type: 2}
+  backToMenuEvent: {fileID: 11400000, guid: 612b1ae045d8a44fb98fa4cf141ac569, type: 2}
   fadeDuration: 0.5
 --- !u!1 &260391940
 GameObject:
@@ -1254,9 +1255,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneLoadEvent: {fileID: 11400000, guid: 21c1159304ddc4d42829c81893cc4bdc, type: 2}
   newGameEvent: {fileID: 11400000, guid: 90062aa76edea49b0bcc15aa2b5f8fe2, type: 2}
+  backToMenuEvent: {fileID: 11400000, guid: 612b1ae045d8a44fb98fa4cf141ac569, type: 2}
   fadeEvent: {fileID: 11400000, guid: 79dd2a10231e54afea09a86ae634eaca, type: 2}
   sceneLoadedEvent: {fileID: 11400000, guid: 644094b27658342cf9d3b64ff53855f9, type: 2}
-  menuSO: {fileID: 11400000, guid: 299612be0384e4bd9b89b888aad3d435, type: 2}
+  menuSO: {fileID: 11400000, guid: 2f38360bf143345a49d92c8c7bf065a4, type: 2}
   firstScene: {fileID: 11400000, guid: 8e6aba1eaf72d45169a2196f33d0b9d3, type: 2}
   firstScenePosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1123262245

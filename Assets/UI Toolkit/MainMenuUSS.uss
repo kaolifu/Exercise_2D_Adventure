@@ -2,11 +2,12 @@
     min-width: 240px;
     margin-right: 16px;
     margin-left: 16px;
-    background-color: rgba(224, 24, 24, 0.77);
+    background-color: rgba(224, 24, 24, 0);
     -unity-text-align: middle-center;
     min-height: 80px;
     font-size: 40px;
     -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans");
+    background-image: url("project://database/Assets/Art/Sprite/HUD/buttons_1x.png?fileID=65044368&guid=a10328d9a1edd4a4bbf055874f63d1a8&type=3#button1");
 }
 
 .Title {

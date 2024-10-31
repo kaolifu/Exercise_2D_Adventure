@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,14 +13,19 @@ public class MainMenu : MonoBehaviour
   private VisualElement _pauseScreen;
   private VisualElement _fadeScreen;
 
-  private Button _restartButton;
-  private Button _exitButton;
+  private GroupBox _pauseButtons;
+  private GroupBox _gameOverButtons;
+
+  private List<Button> _buttons;
 
   [Header("监听")] public VoidEventSO deadEvent;
   public VoidEventSO pauseEvent;
   public VoidEventSO fadeEvent;
 
   [Header("广播")] public VoidEventSO newGameEvent;
+  public VoidEventSO backToMenuEvent;
+  public VoidEventSO saveDataEvent;
+  public VoidEventSO loadGameEvent;
 
   [Header("属性")] public float fadeDuration = 0.5f;
 
@@ -31,38 +37,62 @@ public class MainMenu : MonoBehaviour
     _pauseScreen = _document.rootVisualElement.Q<VisualElement>("PauseScreen");
     _fadeScreen = _document.rootVisualElement.Q<VisualElement>("FadeScreen");
 
-    _restartButton = _document.rootVisualElement.Q<Button>("RestartBtn");
-    _restartButton.RegisterCallback<ClickEvent>(OnRestartButtonClicked);
-
-    _exitButton = _document.rootVisualElement.Q<Button>("ExitBtn");
-    _exitButton.RegisterCallback<ClickEvent>(OnExitButtonClicked);
+    _buttons = _document.rootVisualElement.Query<Button>().ToList();
 
     deadEvent.OnEventRaised += OnDeadEvent;
     pauseEvent.OnEventRaised += OnPauseEvent;
     fadeEvent.OnEventRaised += OnFadeEvent;
+
+    foreach (var button in _buttons)
+    {
+      button.RegisterCallback<ClickEvent>(OnButtonClick);
+    }
   }
 
   private void OnDisable()
   {
-    _restartButton.UnregisterCallback<ClickEvent>(OnRestartButtonClicked);
-    _exitButton.UnregisterCallback<ClickEvent>(OnExitButtonClicked);
-
     deadEvent.OnEventRaised -= OnDeadEvent;
     pauseEvent.OnEventRaised -= OnPauseEvent;
     fadeEvent.OnEventRaised -= OnFadeEvent;
+
+    foreach (var button in _buttons)
+    {
+      button.UnregisterCallback<ClickEvent>(OnButtonClick);
+    }
   }
 
-  private void OnExitButtonClicked(ClickEvent evt)
+  private void OnButtonClick(ClickEvent evt)
   {
-    // TODO:exit action
-    Debug.Log("exit clicked");
+    var currentBtn = evt.target as Button;
+    switch (currentBtn.name)
+    {
+      case "SaveBtn":
+        saveDataEvent.RaiseEvent();
+        break;
+      case "LoadBtn":
+        loadGameEvent.RaiseEvent();
+        break;
+      case "RestartBtn":
+        NewGame();
+        break;
+      case "ExitBtn":
+        ExitGame();
+        break;
+    }
   }
 
-  private void OnRestartButtonClicked(ClickEvent evt)
+  private void NewGame()
   {
     newGameEvent.RaiseEvent();
     _gameOverScreen.style.display = DisplayStyle.None;
   }
+
+  private void ExitGame()
+  {
+    backToMenuEvent.RaiseEvent();
+    _gameOverScreen.style.display = DisplayStyle.None;
+  }
+
 
   private void OnDeadEvent()
   {

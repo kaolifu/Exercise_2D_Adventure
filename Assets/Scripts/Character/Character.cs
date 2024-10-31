@@ -41,12 +41,12 @@ public abstract class Character : MonoBehaviour
     InitHealth();
   }
 
-  private void OnEnable()
+  protected virtual void OnEnable()
   {
     newGameEvent.OnEventRaised += OnNewGameEvent;
   }
 
-  private void OnDisable()
+  protected virtual void OnDisable()
   {
     newGameEvent.OnEventRaised -= OnNewGameEvent;
   }
